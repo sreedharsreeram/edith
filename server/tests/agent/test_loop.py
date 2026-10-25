@@ -6,8 +6,8 @@ import time
 import pytest
 from helpers import FakeDevice, ScriptedModel, Step, call, jpeg
 
-from server.agent.core import NO_ANSWER_TEXT, Agent, BrainError, Exchange, Tool, ToolError, ToolResult
-from server.agent.trace import Trace
+from edith.agent.harness import NO_ANSWER_TEXT, Agent, BrainError, Exchange, Tool, ToolError, ToolResult
+from edith.agent.trace import Trace
 
 PHOTO = jpeg("red")
 NO_ARGS = {"type": "object", "properties": {}, "additionalProperties": False}

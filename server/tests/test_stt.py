@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from server.protocol import SAMPLE_RATE
+from edith.protocol import SAMPLE_RATE
 
 pytestmark = pytest.mark.slow
 
@@ -19,7 +19,7 @@ TRANSCRIPTS = json.loads((AUDIO / "transcripts.json").read_text())
 
 @pytest.fixture(scope="module")
 def transcribe():
-    from server.stt import WhisperTranscriber
+    from edith.stt import WhisperTranscriber
 
     return WhisperTranscriber()
 

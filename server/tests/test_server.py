@@ -8,9 +8,9 @@ from fastapi.testclient import TestClient
 from helpers import TINY_JPEG, FakeTranscriber, ScriptedModel, Step, answer_text, receive_turn, send_turn, speech
 from starlette.websockets import WebSocketDisconnect
 
-from server import protocol
-from server.agent.core import BrainError
-from server.app import DEFAULT_QUESTION, create_app
+from edith import protocol
+from edith.agent.harness import BrainError
+from edith.app import DEFAULT_QUESTION, create_app
 
 
 def test_full_turn(client, stt, model):

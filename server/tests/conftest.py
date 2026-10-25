@@ -2,7 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 from helpers import FakeTranscriber, ScriptedModel, Step
 
-from server.app import create_app
+from edith.app import create_app
 
 
 @pytest.fixture

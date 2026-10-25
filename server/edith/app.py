@@ -1,6 +1,6 @@
 """EDITH server: one WebSocket per pair of glasses. See PROTOCOL.md.
 
-Run: uv run uvicorn server.app:create_app --factory --host 0.0.0.0 --port 8000
+Run: uv run uvicorn edith.app:create_app --factory --host 0.0.0.0 --port 8000
 """
 
 import asyncio
@@ -15,7 +15,7 @@ from pathlib import Path
 from fastapi import FastAPI, WebSocket, status
 
 from . import protocol
-from .agent.core import Agent, BrainError, Exchange, Model, Tool
+from .agent.harness import Agent, BrainError, Exchange, Model, Tool
 from .agent.prompt import SYSTEM_PROMPT
 from .agent.trace import Trace
 from .device import DeviceLink

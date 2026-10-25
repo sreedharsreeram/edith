@@ -7,9 +7,9 @@ import pytest
 from google.genai import errors, types
 from helpers import TINY_JPEG
 
-from server.agent.core import REFUSAL_TEXT, BrainError, Exchange, Tool, ToolResult
-from server.models import gemini as gemini_module
-from server.models.gemini import Gemini
+from edith.agent.harness import REFUSAL_TEXT, BrainError, Exchange, Tool, ToolResult
+from edith.models import gemini as gemini_module
+from edith.models.gemini import Gemini
 
 TOOL = Tool(
     name="walk_around",

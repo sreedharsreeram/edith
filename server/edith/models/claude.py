@@ -7,7 +7,7 @@ import os
 import anthropic
 import httpx2
 
-from ..agent.core import REFUSAL_TEXT, BrainError, Exchange, OnText, Tool, ToolCall, ToolResult
+from ..agent.harness import REFUSAL_TEXT, BrainError, Exchange, OnText, Tool, ToolCall, ToolResult
 from . import errors as messages
 
 DEFAULT_MODEL = "claude-opus-5-5"

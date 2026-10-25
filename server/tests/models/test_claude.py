@@ -9,8 +9,8 @@ import httpx2
 import pytest
 from helpers import TINY_JPEG
 
-from server.agent.core import REFUSAL_TEXT, BrainError, Exchange, Tool, ToolResult
-from server.models.claude import Claude
+from edith.agent.harness import REFUSAL_TEXT, BrainError, Exchange, Tool, ToolResult
+from edith.models.claude import Claude
 
 TOOL = Tool(
     name="walk_around",

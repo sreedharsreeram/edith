@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 
 from PIL import Image
 
-from server import protocol
-from server.agent.core import Exchange, Tool, ToolCall, ToolResult
+from edith import protocol
+from edith.agent.harness import Exchange, Tool, ToolCall, ToolResult
 
 # Passes the JPEG magic-byte check; fakes never decode it.
 TINY_JPEG = protocol.JPEG_MAGIC + b"\xff\xe0" + bytes(100) + b"\xff\xd9"

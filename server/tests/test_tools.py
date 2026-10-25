@@ -5,12 +5,12 @@ import asyncio
 import pytest
 from helpers import FakeDevice, ScriptedModel, Step, call, jpeg
 
-from server.agent.core import Agent, ToolError
-from server.agent.prompt import SYSTEM_PROMPT
-from server.agent.trace import Trace
-from server.tools import default_tools
-from server.tools.camera import MAX_VIEWS
-from server.tools.notes import NoteStore
+from edith.agent.harness import Agent, ToolError
+from edith.agent.prompt import SYSTEM_PROMPT
+from edith.agent.trace import Trace
+from edith.tools import default_tools
+from edith.tools.camera import MAX_VIEWS
+from edith.tools.notes import NoteStore
 
 
 def run_tools(tmp_path, *calls, device=None) -> list:

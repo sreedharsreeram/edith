@@ -5,8 +5,8 @@ import json
 import pytest
 from helpers import ScriptedModel, Step, call, jpeg, receive_turn, send_turn, speech
 
-from server import device, protocol
-from server.agent.core import Tool, ToolContext, ToolResult
+from edith import device, protocol
+from edith.agent.harness import Tool, ToolContext, ToolResult
 
 BURST = bytes([protocol.BURST])
 

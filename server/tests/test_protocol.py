@@ -3,8 +3,8 @@ import json
 import pytest
 from helpers import TINY_JPEG
 
-from server import protocol
-from server.protocol import Audio, End, Image, ProtocolError, Start, parse
+from edith import protocol
+from edith.protocol import Audio, End, Image, ProtocolError, Start, parse
 
 
 def text(obj) -> dict:
@@ -46,7 +46,7 @@ def test_rejects_bad_frames(msg, reason):
 
 
 def test_device_replies():
-    from server.protocol import BurstFrame, CaptureDone, ConfirmResult
+    from edith.protocol import BurstFrame, CaptureDone, ConfirmResult
 
     assert parse(binary(b"\x03" + TINY_JPEG)) == BurstFrame(TINY_JPEG)
     assert parse(text({"type": "capture_done", "id": "c1"})) == CaptureDone("c1")

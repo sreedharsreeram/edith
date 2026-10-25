@@ -5,7 +5,7 @@ follow-ups carry through the day. The report shows what Whisper heard, which too
 chose, and what it answered, and flags anything that doesn't look right.
 
 Usage (server must be running with the same EDITH_DATA_DIR, ideally a fresh one):
-  EDITH_DATA_DIR=/tmp/edith-day uv run uvicorn server.app:create_app --factory --port 8000
+  EDITH_DATA_DIR=/tmp/edith-day uv run uvicorn edith.app:create_app --factory --port 8000
   EDITH_DATA_DIR=/tmp/edith-day uv run python bench/day.py
 Costs real API money (a few cents for the whole day).
 """

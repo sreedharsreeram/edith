@@ -2,7 +2,7 @@
 
 One turn: the model sees the photo and the question, may call tools (several at once), sees
 their results, and repeats until it answers. Provider details (Gemini, Claude) live in
-server/models/; this file never imports either SDK.
+edith/models/; this file never imports either SDK.
 """
 
 import asyncio

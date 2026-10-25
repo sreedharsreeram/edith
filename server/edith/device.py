@@ -8,7 +8,7 @@ import logging
 import uuid
 from collections.abc import Awaitable, Callable
 
-from .agent.core import ToolError
+from .agent.harness import ToolError
 
 log = logging.getLogger("edith")
 

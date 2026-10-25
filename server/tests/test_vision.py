@@ -3,7 +3,7 @@ import io
 import numpy as np
 from PIL import Image, ImageFilter
 
-from server.vision import select_views
+from edith.vision import select_views
 
 
 def view(seed: int, blur: float = 0) -> bytes:

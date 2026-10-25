@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-from ..agent.core import Tool, ToolContext, ToolError
+from ..agent.harness import Tool, ToolContext, ToolError
 
 log = logging.getLogger("edith")
 

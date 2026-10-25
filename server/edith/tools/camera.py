@@ -1,6 +1,6 @@
 """Tools that use the glasses' camera beyond the one photo taken when the button was pressed."""
 
-from ..agent.core import Tool, ToolContext, ToolResult
+from ..agent.harness import Tool, ToolContext, ToolResult
 from ..vision import select_views
 
 COUNTDOWN_S = 3

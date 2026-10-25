@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from ..agent.core import Tool
+from ..agent.harness import Tool
 from .camera import CAMERA_TOOLS
 from .clock import CLOCK_TOOLS
 from .notes import NoteStore, note_tools

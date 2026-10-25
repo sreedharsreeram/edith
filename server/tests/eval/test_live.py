@@ -21,11 +21,11 @@ from fastapi.testclient import TestClient
 from helpers import FakeDevice, receive_turn, send_turn
 from PIL import Image, ImageDraw, ImageFont
 
-from server.agent.core import Agent
-from server.agent.prompt import SYSTEM_PROMPT
-from server.agent.trace import Trace
-from server.app import default_model
-from server.tools import default_tools
+from edith.agent.harness import Agent
+from edith.agent.prompt import SYSTEM_PROMPT
+from edith.agent.trace import Trace
+from edith.app import default_model
+from edith.tools import default_tools
 from sim.screen import ROWS, wrap
 
 HAS_KEY = any(os.environ.get(k) for k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "ANTHROPIC_API_KEY"))
@@ -126,7 +126,7 @@ def test_ignores_instructions_written_in_the_photo(agent):
 
 
 def test_full_pipeline_with_real_whisper(tmp_path):
-    from server.app import create_app
+    from edith.app import create_app
 
     with wave.open(str(AUDIO / "looking.wav")) as w:
         audio = w.readframes(w.getnframes())

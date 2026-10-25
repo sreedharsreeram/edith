@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from ..agent.core import Tool, ToolContext
+from ..agent.harness import Tool, ToolContext
 
 
 async def get_time(ctx: ToolContext, args: dict) -> str:

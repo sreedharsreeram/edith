@@ -10,7 +10,7 @@ import httpx
 from google import genai
 from google.genai import errors, types
 
-from ..agent.core import REFUSAL_TEXT, BrainError, Exchange, OnText, Tool, ToolCall, ToolResult
+from ..agent.harness import REFUSAL_TEXT, BrainError, Exchange, OnText, Tool, ToolCall, ToolResult
 from . import errors as messages
 
 # Newest regular Gemini models as of Oct 2026, newest first (deliberately not gemini-4-argon). When one is

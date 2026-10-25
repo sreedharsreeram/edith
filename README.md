@@ -19,13 +19,20 @@ glasses (ESP32, or a simulator)  ──WebSocket──▶  server  ──▶  Wh
 - **Safety:** tools with side effects need a physical button press to confirm, so text in a photo or a
   web page can't make EDITH act on its own.
 
+```
+firmware/   ESP32 code for the glasses
+server/     the Python server: agent, tools, model adapters, simulators, tests, AWS deploy
+PROTOCOL.md the contract between the two
+```
+
 ## Run it
 
-Needs [uv](https://docs.astral.sh/uv/) and a Gemini or Anthropic API key.
+Needs [uv](https://docs.astral.sh/uv/) and a Gemini or Anthropic API key. Everything below runs from `server/`.
 
 ```sh
+cd server
 export GEMINI_API_KEY=...                # from aistudio.google.com (or ANTHROPIC_API_KEY)
-uv run uvicorn server.app:create_app --factory --host 0.0.0.0 --port 8000
+uv run uvicorn edith.app:create_app --factory --host 0.0.0.0 --port 8000
 ```
 
 Then, in a second terminal, pick a pair of simulated glasses.
@@ -47,7 +54,7 @@ uv run python -m sim.glasses
 
 ## How the agent works
 
-`server/agent/core.py` runs the loop: the model sees the photo and question, may call tools (in
+`server/edith/agent/harness.py` runs the loop: the model sees the photo and question, may call tools (in
 parallel), sees their results, and repeats, for up to 5 steps. The last step has tools switched off
 so it must answer. Tool arguments are validated against their JSON Schema, every tool has a timeout,
 and failures go back to the model as errors instead of crashing the turn.
@@ -55,7 +62,7 @@ and failures go back to the model as errors instead of crashing the turn.
 Every turn is written to `data/traces/` (one JSON line per turn: each model step and tool call, with
 timings). Tool output and images are never stored there.
 
-Adding a skill means writing a `Tool` in `server/tools/` and listing it in `default_tools()`.
+Adding a skill means writing a `Tool` in `server/edith/tools/` and listing it in `default_tools()`.
 
 ## Tests
 
