@@ -1,4 +1,4 @@
-"""EDITH server: one WebSocket per pair of glasses. See PROTOCOL.md.
+"""EDITH server: one WebSocket per pair of glasses. The wire format is in protocol.py.
 
 Run: uv run uvicorn edith.app:create_app --factory --host 0.0.0.0 --port 8000
 """

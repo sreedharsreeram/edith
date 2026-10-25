@@ -1,4 +1,4 @@
-"""Wire format between the glasses and the server. PROTOCOL.md is the human-readable version."""
+"""Wire format between the glasses and the server."""
 
 import json
 from dataclasses import dataclass

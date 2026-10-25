@@ -7,32 +7,19 @@ dependencies = [
     "fastapi",
     "uvicorn[standard]",
     "faster-whisper",
+    "google-genai>=2.33.0",
+    "jsonschema>=4.26.0",
     "numpy",
+    "pillow",
     # simulator only
     "websockets",
     "pygame-ce",
     "opencv-python-headless",
     "sounddevice",
-    "pillow",
-    "google-genai>=2.33.0",
-    "jsonschema>=4.26.0",
 ]
 
 [dependency-groups]
-dev = ["pytest", "pytest-timeout", "ruff"]
-
-[tool.pytest.ini_options]
-pythonpath = [".", "tests"]
-testpaths = ["tests"]
-addopts = "-m 'not live'"
-timeout = 60  # a hung WebSocket read fails the test instead of hanging CI forever
-markers = [
-    "slow: loads the real Whisper model",
-    "live: calls the real Claude API (costs money); run with -m live",
-]
+dev = ["ruff"]
 
 [tool.ruff]
 line-length = 120
-
-[tool.ruff.lint.per-file-ignores]
-"tests/*" = ["SIM117"]  # nested with-blocks read clearer for app-then-socket

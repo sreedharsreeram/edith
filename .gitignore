@@ -11,3 +11,8 @@ data/
 # Secrets
 .env
 .env.*
+
+# Kept on your machine only, not in the repo
+server/tests/
+server/bench/
+PROTOCOL.md

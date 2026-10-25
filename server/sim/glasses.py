@@ -1,6 +1,6 @@
 """Simulated EDITH glasses: webcam = camera, laptop mic = mic, a window = the OLED.
 
-Hold SPACE to talk (it's the button). Speaks PROTOCOL.md, exactly like the real firmware will.
+Hold SPACE to talk (it's the button). Speaks the same protocol as the real firmware will.
 Usage: uv run python -m sim.glasses [ws://host:8000/ws]   (set EDITH_TOKEN if the server uses one)
 """
 

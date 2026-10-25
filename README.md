@@ -14,15 +14,14 @@ glasses (ESP32, or a simulator)  ──WebSocket──▶  server  ──▶  Wh
 ```
 
 - **Hardware:** Seeed XIAO ESP32-S3 Sense, 0.96" OLED, beam splitter + lens, LiPo battery.
-- **Protocol:** how the glasses and server talk, including server requests like "record a walk-around"
-  and "confirm this": [PROTOCOL.md](PROTOCOL.md).
+- **Protocol:** the glasses and server talk over one WebSocket, including server requests like "record a
+  walk-around" and "confirm this" (see `server/edith/protocol.py`).
 - **Safety:** tools with side effects need a physical button press to confirm, so text in a photo or a
   web page can't make EDITH act on its own.
 
 ```
 firmware/   ESP32 code for the glasses
-server/     the Python server: agent, tools, model adapters, simulators, tests, AWS deploy
-PROTOCOL.md the contract between the two
+server/     the Python server: agent, tools, model adapters, simulators, AWS deploy
 ```
 
 ## Run it
@@ -63,14 +62,6 @@ Every turn is written to `data/traces/` (one JSON line per turn: each model step
 timings). Tool output and images are never stored there.
 
 Adding a skill means writing a `Tool` in `server/edith/tools/` and listing it in `default_tools()`.
-
-## Tests
-
-```sh
-uv run pytest                 # everything that doesn't cost money, including real Whisper
-uv run pytest -m live         # real model: answer quality, tool choice, screen fit (costs cents)
-uv run python bench/latency.py --runs 10   # p50/p95 per stage against a running server
-```
 
 ## Settings
 
