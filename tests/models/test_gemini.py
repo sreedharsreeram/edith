@@ -214,6 +214,8 @@ class TestFallback:
         (api_error(400, "API_KEY_INVALID"), "Server API key is invalid."),
         (api_error(400, "bad schema"), "AI service error. Try again."),  # not every 400 is a bad key
         (api_error(403), "Server API key is invalid."),
+        (api_error(429, "rate limited"), "Busy right now. Try again."),
+        (api_error(429, "You exceeded your current quota, please check your plan"), "AI quota used up. Check API billing."),
         (httpx.ConnectError("refused"), "Can't reach the AI. Check WiFi."),
         (OSError("no route"), "Can't reach the AI. Check WiFi."),
     ],

@@ -189,6 +189,7 @@ class Session:
             question = question or DEFAULT_QUESTION
             timings["stt"] = ms()
             await self.send({"type": "transcript", "text": question})
+            log.info("[%s] heard: %r", trace.id, question)
 
             answer = await self.agent.run(
                 question=question,
@@ -202,7 +203,7 @@ class Session:
             self.history.append(Exchange(question, answer))
             outcome = "ok"
             await self.send({"type": "done", "timings": timings})
-            log.info("%r -> %r %s", question, answer, timings)
+            log.info("[%s] answer: %r  %s", trace.id, answer, timings)
         except BrainError as e:
             outcome = f"error: {e.user_message}"
             log.warning("brain error: %s (%r)", e.user_message, e.__cause__)

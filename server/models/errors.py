@@ -2,6 +2,7 @@
 
 INVALID_KEY = "Server API key is invalid."
 BUSY = "Busy right now. Try again."
+QUOTA = "AI quota used up. Check API billing."
 SERVICE = "AI service error. Try again."
 SLOW = "AI is slow right now. Try again."
 OFFLINE = "Can't reach the AI. Check WiFi."

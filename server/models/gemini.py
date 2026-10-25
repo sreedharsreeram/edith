@@ -215,4 +215,6 @@ def _is_blocked(chunk: types.GenerateContentResponse) -> bool:
 def _message_for(e: errors.APIError) -> str:
     if e.code == 400 and "API_KEY" in str(e):  # Gemini answers a bad key with 400 API_KEY_INVALID
         return messages.INVALID_KEY
+    if e.code == 429 and "quota" in str(e).lower():  # used up, not busy: waiting a moment won't help
+        return messages.QUOTA
     return messages.for_status(e.code)
