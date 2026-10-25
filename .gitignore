@@ -1,0 +1,13 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Your personal data: notes and traces of everything you asked. Never commit these.
+data/
+
+# Secrets
+.env
+.env.*
